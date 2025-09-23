@@ -14,6 +14,7 @@ views:
       - finished
       - rate
       - area
+      - tags
       - format
     columnSize:
       note.author: 163

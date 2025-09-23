@@ -13,6 +13,8 @@ format:
 tags:
 created:
 ---
+## DB: [[03_resources/Library.base|Library]]
+
 ## Links
 
 ```dataview
