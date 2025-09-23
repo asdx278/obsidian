@@ -1,3 +1,6 @@
 views:
   - type: table
     name: Таблица
+    filters:
+      and:
+        - file.inFolder("03_resources/library")
