@@ -4,7 +4,7 @@
 
 ---
 
-[[03_resources/databases/library.base|Library]] || 
+[[03_resources/databases/library_db.base|Library]] || 
 
 ## Inbox
-![[03_resources/databases/Без названия 1.base]]
+![[03_resources/databases/inbox_db.base]]
