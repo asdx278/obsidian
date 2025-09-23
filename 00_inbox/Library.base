@@ -15,3 +15,5 @@ views:
       - rate
       - area
       - format
+    columnSize:
+      note.author: 163
