@@ -18,3 +18,5 @@ views:
       - format
     columnSize:
       note.author: 163
+  - type: cards
+    name: представление
