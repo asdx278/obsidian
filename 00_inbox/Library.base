@@ -4,3 +4,5 @@ views:
     filters:
       and:
         - file.inFolder("03_resources/library")
+    order:
+      - file.name

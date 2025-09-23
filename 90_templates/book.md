@@ -1,10 +1,10 @@
 ---
-class:
-title:
+class: book
+title: "{{title}}"
 type:
 author:
 year:
-status:
+status: planned
 started:
 finished:
 rate:
@@ -18,4 +18,4 @@ created:
 ```dataview
 TABLE WITHOUT ID file.link AS File, class AS Class, created AS Created, area AS Area
 FROM [[#]]
-```
+````
