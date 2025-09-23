@@ -6,3 +6,13 @@ views:
         - file.inFolder("03_resources/library")
     order:
       - file.name
+      - title
+      - type
+      - author
+      - year
+      - status
+      - started
+      - finished
+      - rate
+      - area
+      - format
