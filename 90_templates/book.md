@@ -1,3 +1,15 @@
 ---
 class:
+title:
+type:
+author:
+year:
+status:
+started:
+finished:
+rate:
+area:
+format:
+tags:
+created:
 ---
