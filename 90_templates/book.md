@@ -13,7 +13,7 @@ format:
 tags:
 created:
 ---
-## DB: [[03_resources/Library.base|Library]]
+## DB: [[03_resources/databases/library.base|Library]]
 
 ## Links
 
