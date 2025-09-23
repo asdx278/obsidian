@@ -10,13 +10,15 @@ views:
       - author
       - year
       - status
-      - started
-      - finished
       - rate
       - area
       - tags
-      - format
+    sort:
+      - property: started
+        direction: DESC
     columnSize:
+      note.type: 101
       note.author: 163
+      note.area: 87
   - type: cards
     name: представление
