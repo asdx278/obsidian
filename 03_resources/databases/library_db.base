@@ -14,11 +14,16 @@ views:
       - area
       - tags
     sort:
+      - property: file.name
+        direction: ASC
+      - property: status
+        direction: DESC
       - property: started
         direction: DESC
     columnSize:
       note.type: 101
       note.author: 163
+      note.status: 106
       note.area: 87
   - type: cards
     name: представление

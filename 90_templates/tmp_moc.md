@@ -6,9 +6,7 @@ created:
 
 ## Notes
 
-### Cursor AI
 
-[[Cursor - Оплата подписки]]
 
 ## Books
 
