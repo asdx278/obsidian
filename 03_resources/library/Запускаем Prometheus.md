@@ -1,19 +1,21 @@
 ---
 class: book
-title: Бедный волк
-type: fiction
+title: Запускаем Prometheus
+type: non-fiction
 author:
-  - Салтыков-Щедрин М.Е.
+  - Пивотто Ж.
+  - Бразил Б.
 year:
 status: planned
 started:
 finished:
 rate:
-area: hobby
-format:
+area: professional
+format: ebook
 tags:
-  - русская_литература
-created: 2025-09-23
+  - monitoring
+  - prometheus
+created: 2025-09-24
 ---
 ## DB: [[03_resources/databases/library_db.base|Library]]
 
