@@ -1,18 +1,19 @@
 ---
 class: book
-title: Generation P
-type: fiction
+title: Git. Контроль версий. 3-е изд
+type: non-fiction
 author:
-  - Пелевин В.О.
-year: 2011
+  - Понуторай П.К.
+  - Лолигер Д.
+year: 2025
 status: planned
-started: 2013-10-01
-finished: 2013-10-30
-rate: 4
-area: hobby
+started:
+finished:
+rate:
+area: professional
 format: ebook
 tags:
-  - русская_литература
+  - git
 created: 2025-09-24
 ---
 ## DB: [[03_resources/databases/library_db.base|Library]]

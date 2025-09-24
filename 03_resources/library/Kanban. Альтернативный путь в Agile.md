@@ -1,18 +1,19 @@
 ---
 class: book
-title: Generation P
-type: fiction
+title: Kanban. Альтернативный путь в Agile
+type: non-fiction
 author:
-  - Пелевин В.О.
-year: 2011
+  - Андресон Д.
+year: 2017
 status: planned
-started: 2013-10-01
-finished: 2013-10-30
-rate: 4
-area: hobby
+started:
+finished:
+rate:
+area: softskills
 format: ebook
 tags:
-  - русская_литература
+  - agile
+  - kanban
 created: 2025-09-24
 ---
 ## DB: [[03_resources/databases/library_db.base|Library]]
