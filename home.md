@@ -4,7 +4,7 @@
 
 ---
 
-[[03_resources/databases/library_db.base|Library]] || 
+[[03_resources/databases/library_db.base|Library]] || [[02_areas/professional/MOC - Professional|MOC - Professional]]
 
 ## Inbox
 ![[03_resources/databases/inbox_db.base]]
