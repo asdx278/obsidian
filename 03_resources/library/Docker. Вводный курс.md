@@ -13,6 +13,7 @@ rate:
 area: professional
 format: pbook
 tags:
+  - docker
 created: 2025-09-24
 ---
 ## DB: [[03_resources/databases/library_db.base|Library]]
