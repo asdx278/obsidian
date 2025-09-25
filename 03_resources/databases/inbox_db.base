@@ -4,3 +4,5 @@ views:
     filters:
       and:
         - file.inFolder("00_inbox")
+  - type: table
+    name: представление

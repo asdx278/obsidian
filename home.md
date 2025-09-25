@@ -3,8 +3,15 @@
 
 
 ---
+# Home
 
 [[03_resources/databases/library_db.base|Library]] || [[02_areas/professional/MOC - Professional|MOC - Professional]]
 
 ## Inbox
+
 ![[03_resources/databases/inbox_db.base]]
+
+
+## Book
+
+![[03_resources/databases/library_db.base|library_db]]
