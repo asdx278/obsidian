@@ -16,6 +16,8 @@ views:
     sort:
       - property: file.name
         direction: ASC
+      - property: type
+        direction: DESC
       - property: author
         direction: ASC
       - property: status
