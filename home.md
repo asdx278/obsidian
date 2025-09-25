@@ -5,7 +5,7 @@
 ---
 # Home
 
-[[03_resources/databases/library_db.base|Library]] || [[02_areas/professional/MOC - Professional|MOC - Professional]]
+[[03_resources/databases/library_db.base|Library]] || [[02_areas/MOC - Areas|MOC - Areas]]
 
 ## Inbox
 
