@@ -43,9 +43,4 @@ created:
 
 > [!IMPORTANT] **_Проект_ без цели - хобби, а _цель_ без проекта - мечта.**
 
-
-
-
-
-
 ### Additional materials
