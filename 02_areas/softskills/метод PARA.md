@@ -1,6 +1,6 @@
 ---
 class: note
-area:
+area: softskills
 tags:
 created:
 ---
