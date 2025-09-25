@@ -14,4 +14,3 @@
 
 ## Book
 
-![[03_resources/databases/library_db.base|library_db]]
