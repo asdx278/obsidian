@@ -2,9 +2,9 @@
 class: note
 area:
 tags:
-cerated:
+created:
 ---
-**MOC: [[]]**
+**MOC:**
 
 # {{title}}
 
