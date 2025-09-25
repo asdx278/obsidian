@@ -4,7 +4,7 @@ area:
 tags:
 cerated:
 ---
-MOC: 
+**MOC: [[]]**
 
 # {{title}}
 
