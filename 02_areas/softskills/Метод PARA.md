@@ -6,7 +6,7 @@ created:
 ---
 **MOC: [[MOC - Life]]**
 
-# метод PARA
+# Метод PARA
 
 ## Вступление
 
