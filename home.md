@@ -14,3 +14,9 @@
 
 ## Book
 
+```datacorejsx
+return function View() {
+    const games = dc.useQuery("#sql");
+    return <p>You have written about {games.length} games!</p>;
+}
+```
