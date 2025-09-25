@@ -14,12 +14,12 @@ views:
       - area
       - tags
     sort:
+      - property: author
+        direction: ASC
       - property: file.name
         direction: ASC
       - property: type
         direction: DESC
-      - property: author
-        direction: ASC
       - property: status
         direction: DESC
       - property: started
