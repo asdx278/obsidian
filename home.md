@@ -5,7 +5,11 @@
 ---
 # Home
 
-[[03_resources/databases/library_db.base|Library]] || [[02_areas/MOC - Areas|MOC - Areas]]
+[[03_resources/databases/library_db.base|Library]] || [[Список для чтения]] || [[02_areas/MOC - Areas|MOC - Areas]]
+
+## TODO
+
+[[Next actions]] || [[Someday]]
 
 ## Inbox
 
