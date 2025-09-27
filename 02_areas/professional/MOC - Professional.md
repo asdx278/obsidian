@@ -10,3 +10,4 @@ created: 2025-09-25
 [[MOC - Kubernetes]]
 [[MOC - SRE]]
 [[MOC - Containers]]
+[[MOC - Telegram]]
