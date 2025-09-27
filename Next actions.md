@@ -3,6 +3,14 @@
 [ ] ;laskdjf
 [] ;laskdjf
 - [ ] alksdjhf
-- [ ] lasjkdhfjaksdhf
+- [x] lasjkdhfjaksdhf
+
+- [ ] task starting with a hyphen
+
+
+```tasks
+not done
+```
+
 
 
