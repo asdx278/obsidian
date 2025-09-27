@@ -2,13 +2,11 @@
 class: moc
 created: 2025-09-27
 ---
-# MOC - Telegram
+# MOC - Hobby
 
 ## Notes
 
-### Боты
-
-[[Получить chat id telegram]]
+[[Про перьевые ручки]]
 
 
 ## Books

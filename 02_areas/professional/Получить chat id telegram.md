@@ -7,7 +7,7 @@ created: 2025-09-27
 ---
 **MOC:**
 
-# Получить chat id
+# Получить chat id telegram
 
 > [!tldr] ai review
 > 
