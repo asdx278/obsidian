@@ -9,5 +9,5 @@ created: 2025-09-25
 [[MOC - Linux]]
 [[MOC - Kubernetes]]
 [[MOC - SRE]]
-[[MOC - Containers]]
+[[MOC - Containers & VM]]
 [[MOC - Telegram]]
