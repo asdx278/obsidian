@@ -19,3 +19,18 @@
 ## Book
 
 
+```datacorejsx
+// A list of columns to show in the table.
+const COLUMNS = [
+    { id: "Name", value: page => page.$link },
+    { id: "Rating", value: page => page.value("rating") }
+];
+
+return function View() {
+    // Selecting `#game` pages, for example.
+    const pages = dc.useQuery(@page and $class = "book");
+
+    // Uses the built in table component for showing objects in a table!
+    return <dc.Table columns={COLUMNS} rows={pages} />;
+}
+```
