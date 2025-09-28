@@ -21,8 +21,8 @@
 
 ```datacorejsx
 const COLUMNS = [
-  { id: "Name", value: (row) => row.$name },
-{ id: "Link", value: (row) => row.$link }
+{ id: "Link", value: (row) => row.$link },
+{ id: "Rate", value: (row) => row.$rate },
 ]
 
 return function View() {
