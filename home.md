@@ -27,7 +27,7 @@ const COLUMNS = [
 ]
 
 return function View() {
-const pages = dc.useQuery('@page and class = "book"');
+const pages = dc.useQuery('@page and class = "book" and status = "compleated"');
 
 // 1. Сортируем данные по имени в алфавитном порядке
 const sortedPages = dc.useArray(pages, array =>
