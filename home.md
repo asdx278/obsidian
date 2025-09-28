@@ -20,17 +20,47 @@
 
 
 ```datacorejsx
-// A list of columns to show in the table.
 const COLUMNS = [
-    { id: "Name", value: page => page.$link },
-    { id: "Rating", value: page => page.value("rating") }
-];
+  { id: "Name", value: (row) => row.$name },
+{ id: "Link", value: (row) => row.$link },
+{ id: "Path", value: (row) => row.$path }
+]
 
 return function View() {
-    // Selecting `#game` pages, for example.
-    const pages = dc.useQuery(@page and class = "book");
+const pages = dc.useQuery("@page");
 
-    // Uses the built in table component for showing objects in a table!
-    return <dc.Table columns={COLUMNS} rows={pages} />;
+// 1. Сортируем данные по имени в алфавитном порядке
+const sortedPages = dc.useArray(pages, array =>
+array.sort(page => page.$name)
+);
+const [filter, setFilter] = dc.useState("");
+
+    // Замеморизованное значение для отсортированных и отфильтрованных команд.
+    // Это предотвращает пересчет при каждом рендере, если фильтр не меняется.
+const filteredPages = dc.useMemo(() => {
+        // 2. Если фильтр не применен, возвращаем отсортированные данные
+        if (!filter) {
+            return sortedPages;
+        }
+        console.log(pages);
+        // 3. Фильтруем по имени или id
+        return sortedPages.filter((obj) => 
+obj.$name?.toLowerCase().includes(filter.toLowerCase()) ||
+obj.$link?.path.toLowerCase().includes(filter.toLowerCase())
+);
+    }, [filter]); // Этот хук перезапускается только при изменении 'filter'
+
+return (
+<div>
+<input
+type="text"
+placeholder="Search..."
+value={filter}
+onChange={(e) => setFilter(e.target.value)}
+/>
+
+<dc.Table rows={filteredPages} paging={10} columns={COLUMNS} />
+</div>
+);
 }
 ```
