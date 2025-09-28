@@ -28,7 +28,7 @@ const COLUMNS = [
 
 return function View() {
     // Selecting `#game` pages, for example.
-    const pages = dc.useQuery(@page and $class = "book");
+    const pages = dc.useQuery(@page and class = "book");
 
     // Uses the built in table component for showing objects in a table!
     return <dc.Table columns={COLUMNS} rows={pages} />;
