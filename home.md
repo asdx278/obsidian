@@ -22,7 +22,7 @@
 ```datacorejsx
 const COLUMNS = [
 { id: "Link", value: (row) => row.$link },
-{ id: "Rate", value: (row) => row.$rate },
+{ id: "Rate", value: (row) => row.$area },
 ]
 
 return function View() {
