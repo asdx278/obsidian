@@ -27,7 +27,7 @@ const COLUMNS = [
 ]
 
 return function View() {
-const pages = dc.useQuery("@page and class = book");
+const pages = dc.useQuery('@page and class = "book"');
 
 // 1. Сортируем данные по имени в алфавитном порядке
 const sortedPages = dc.useArray(pages, array =>
@@ -59,8 +59,9 @@ value={filter}
 onChange={(e) => setFilter(e.target.value)}
 />
 
-<dc.Table rows={filteredPages} paging={10} columns={COLUMNS} />
+<dc.Table rows={filteredPages} paging={30} columns={COLUMNS} />
 </div>
 );
 }
 ```
+
