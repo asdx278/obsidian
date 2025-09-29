@@ -60,7 +60,7 @@ value={filter}
 onChange={(e) => setFilter(e.target.value)}
 />
 
-<dc.Table rows={filteredPages} paging={30} columns={COLUMNS} />
+<dc.Table rows={filteredPages} paging={15} columns={COLUMNS} />
 </div>
 );
 }
