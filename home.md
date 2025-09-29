@@ -18,12 +18,13 @@
 
 ## Book
 
+### Compleated
 
 ```datacorejsx
 const COLUMNS = [
-{ id: "Link", value: (row) => row.$link },
-{ id: "Name", value: (row) => row.$name },
-{ id: "Rate", value: (row) => row.$author }
+{ id: "Name", value: (row) => row.$link },
+{ id: "Rate", value: (row) => row.value("rate") },
+{ id: "Area", value: (row) => row.value("area") }
 ]
 
 return function View() {
