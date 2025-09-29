@@ -18,6 +18,54 @@
 
 ## Book
 
+### Active
+
+```datacorejsx
+const COLUMNS = [
+{ id: "Name", value: (row) => row.$link },
+{ id: "Rate", value: (row) => row.value("rate") },
+{ id: "Area", value: (row) => row.value("area") }
+]
+
+return function View() {
+const pages = dc.useQuery('@page and class = "book" and status = "active"');
+
+// 1. Сортируем данные по имени в алфавитном порядке
+const sortedPages = dc.useArray(pages, array =>
+array.sort(page => page.$name)
+);
+const [filter, setFilter] = dc.useState("");
+
+    // Замеморизованное значение для отсортированных и отфильтрованных команд.
+    // Это предотвращает пересчет при каждом рендере, если фильтр не меняется.
+const filteredPages = dc.useMemo(() => {
+        // 2. Если фильтр не применен, возвращаем отсортированные данные
+        if (!filter) {
+            return sortedPages;
+        }
+        console.log(pages);
+        // 3. Фильтруем по имени или id
+        return sortedPages.filter((obj) => 
+obj.$name?.toLowerCase().includes(filter.toLowerCase()) ||
+obj.$link?.path.toLowerCase().includes(filter.toLowerCase())
+);
+    }, [filter]); // Этот хук перезапускается только при изменении 'filter'
+
+return (
+<div>
+<input
+type="text"
+placeholder="Search..."
+value={filter}
+onChange={(e) => setFilter(e.target.value)}
+/>
+
+<dc.Table rows={filteredPages} paging={15} columns={COLUMNS} />
+</div>
+);
+}
+```
+
 ### Compleated
 
 ```datacorejsx
