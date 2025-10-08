@@ -123,7 +123,45 @@ globs: *.py
 ```
 
 
-### Ex. 4 - 
+### Ex. 4 - description
+
+- Текущее состояние игры
+- Следующие шаги разработки
+- Лучшие практики Pygame
+
+```mdc
+---
+description: Game development patterns and Pygame best practices
+---
+
+# Game Development Guidelines
+
+## Current Game State:
+
+The game currently has:
+- Basic game loop in [alien_invasion.py](mdc:alien_invasion.py)
+- Screen setup (1200x800 pixels)
+- Event handling for window closing
+- 60 FPS frame rate
+
+## Next Development Steps:
+
+1. Create ship class for player
+2. Add alien sprites
+3. Implement bullet system
+4. Add collision detection
+5. Create game states (menu, playing, game over)
+6. Add scoring system
+
+## Pygame Best Practices:
+
+- Use sprite groups for managing multiple objects
+- Implement proper game state management
+- Use vector math for movement calculations
+- Optimize rendering with dirty rectangle updates
+- Handle input with proper key states
+```
+
 ## Генерация правил
 
 ### Additional materials
