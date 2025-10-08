@@ -164,4 +164,6 @@ The game currently has:
 
 ## Генерация правил
 
+Правила можно сгенерировать командой - \
+
 ### Additional materials
