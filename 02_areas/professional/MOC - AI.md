@@ -10,9 +10,9 @@ created: 2025-09-25
 #### Правила
 
 [[Cursor - Общее о rules]]
-	[[Cursor - Project rules]]
-	[[Cursor - User rules]]
-	[[Cursor - AGENTS.md]]
+[[Cursor - Project rules]]
+[[Cursor - User rules]]
+[[Cursor - AGENTS.md]]
 
 #### Подписка
 
