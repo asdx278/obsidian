@@ -15,7 +15,17 @@ created: 2025-10-09
 
 ## Введение
 
-Правила проекта находятся в `.cursor/rules` и
+Правила проекта находятся в `.cursor/rules` и могут быть вложенными:
+
+```
+project/
+  .cursor/rules/             # Общие правила проекта
+  backend/
+    server/
+      .cursor/rules/    # Правила для backend'а
+  frontend/
+    .cursor/rules/      # Правила для frontend'а
+```
 
 Каждое правило - отдельный файл под контролем версий.
 
