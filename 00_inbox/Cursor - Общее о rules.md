@@ -19,7 +19,7 @@ created: 2025-10-09
 
 Правила задают системные инструкции - это постоянный контекст.
 
-Поддерживается 4 типа правил: [[Cursor - Project rules]], [[Cursor - User rules]], [[Cursor - AGENTS.md]], .cursorrules - legacy, не рекомендуется для использования.
+Поддерживается 4 типа правил: [[Cursor - Project rules]], [[Cursor - User rules]], [[Cursor - AGENTS]], .cursorrules - legacy, не рекомендуется для использования.
 
 ## Как работают правила
 
