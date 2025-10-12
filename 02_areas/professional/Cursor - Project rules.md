@@ -292,6 +292,115 @@ alwaysApply: true
 
 ### Выбор моделей для выполнения  разных задач
 
+Заготовка для правил по выбору предпочтительных моделей. Лучше разбить правила на отдельные.
+
+```yaml
+# ========================================================================
+# Cursor Model Selection Rules
+# mode: always apply
+# ------------------------------------------------------------------------
+# Назначение: автоматический выбор LLM-модели в зависимости от контекста
+# (тип файла, ключевые слова, путь и тип задачи).
+#
+# Приоритет правил:
+#  1. Специфичные (sqlalchemy, ai-agent, архитектура и т.д.)
+#  2. Тематические (SQL, документация, верстка)
+#  3. Общие (любой код)
+#  4. Запасное (any: true)
+#
+# Автор: Albert
+# Версия: 1.1
+# ========================================================================
+
+rules:
+
+  # === 1. Python с базами данных / SQLAlchemy ===
+  - match:
+      file_types: ["py"]
+      keywords: ["sqlalchemy", "query", "ORM", "PostgreSQL", "SELECT"]
+    use: "deepseek-coder-v2"
+    fallback: ["gpt-5", "claude-3.5-sonnet"]
+    reason: "DeepSeek Coder отлично генерирует ORM и SQL-запросы, оптимизирует логику запросов."
+
+  # === 2. Архитектура и системный дизайн ===
+  - match:
+      keywords: ["архитектура", "инфраструктура", "проектирование", "api", "grpc", "diagram"]
+      task_types: ["system_design", "integration"]
+      path_patterns: ["*/architecture/*", "*/infra/*", "*/design/*"]
+    use: "claude-3.5-sonnet"
+    fallback: ["gpt-5", "gemini-1.5-pro"]
+    reason: "Claude Sonnet лучше всего справляется с проектированием и документацией систем."
+
+  # === 3. Аналитика данных и SQL ===
+  - match:
+      file_types: ["sql"]
+      keywords: ["SELECT", "JOIN", "CTE", "GROUP BY", "анализ", "dataframe"]
+      task_types: ["query_generation", "data_analysis"]
+    use: "gpt-5-turbo"
+    fallback: ["claude-3.5-sonnet", "mistral-large"]
+    reason: "GPT-5 Turbo быстро и точно формирует сложные SQL-запросы и анализ данных."
+
+  # === 4. AI-боты и агенты ===
+  - match:
+      keywords: ["ai-agent", "бот", "chatbot", "assistant", "webhook", "интеграция"]
+      path_patterns: ["*/agents/*", "*/bot/*"]
+      task_types: ["ai_agent_logic", "conversation_flow"]
+    use: "gpt-5"
+    fallback: ["claude-3.5-sonnet", "gemini-1.5-pro"]
+    reason: "GPT-5 лучше всего работает с контекстом диалога и логикой AI-агентов."
+
+  # === 5. Документация и описания ===
+  - match:
+      file_types: ["md", "txt", "rst"]
+      path_patterns: ["*/docs/*", "*/readme/*"]
+      keywords: ["описание", "документация", "инструкция", "отчёт"]
+      task_types: ["text_writing", "summary"]
+    use: "gemini-1.5-flash"
+    fallback: ["claude-3.5-haiku", "gpt-4o-mini"]
+    reason: "Gemini Flash быстрый и эффективный для генерации текстов и документации."
+
+  # === 6. Вёрстка и визуальные задачи ===
+  - match:
+      file_types: ["html", "css"]
+      keywords: ["дизайн", "ui", "ux", "портфолио", "layout"]
+      path_patterns: ["*/ui/*", "*/frontend/*"]
+    use: "gemini-1.5-pro"
+    fallback: ["gpt-5", "claude-3.5-sonnet"]
+    reason: "Gemini 1.5 Pro лучше понимает визуальные и UX-задачи."
+
+  # === 7. Разработка и программирование общего назначения ===
+  - match:
+      file_types: ["py", "js", "ts", "go", "cpp", "java", "html", "css"]
+      task_types: ["code_completion", "refactor", "bug_fix", "test_generation"]
+      keywords: ["function", "class", "import", "def", "async"]
+    use: "deepseek-coder-v2"
+    fallback: ["gpt-5-coder", "claude-3.5-sonnet"]
+    reason: "DeepSeek Coder — лучший выбор для повседневных задач по написанию и улучшению кода."
+
+  # === 8. Объяснения и обучение ===
+  - match:
+      keywords: ["объясни", "пример", "ошибка", "как работает", "разбор"]
+      task_types: ["education", "explanation"]
+    use: "claude-3.5-haiku"
+    fallback: ["gpt-4o-mini", "mistral-small"]
+    reason: "Claude Haiku формулирует объяснения просто и доступно."
+
+  # === 9. Короткие вопросы и утилитарные задачи ===
+  - match:
+      task_types: ["qa", "utility"]
+      keywords: ["вопрос", "переведи", "help", "summary", "hint"]
+    use: "gpt-4o-mini"
+    fallback: ["gemini-1.5-flash", "mistral-nemo"]
+    reason: "Мини-модели быстро дают лаконичные ответы с минимальными затратами токенов."
+
+  # === 10. Общий случай (по умолчанию) ===
+  - match:
+      any: true
+    use: "gpt-5"
+    fallback: ["claude-3.5-sonnet", "gemini-1.5-pro"]
+    reason: "GPT-5 — универсальная модель для всех остальных сценариев."
+
+```
 
 
 ### Additional materials
