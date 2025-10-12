@@ -8,7 +8,7 @@ created: 2025-10-12
 ---
 **MOC: [[MOC - Professional]]**
 
-# Cursor - общие рекомендации
+# Cursor - Общие рекомендации
 
 > [!tldr] ai review
 > 
