@@ -7,6 +7,8 @@ created: 2025-09-25
 ## Notes
 ### Cursor AI
 
+[[Cursor - общие рекомендации]]
+
 #### Правила
 
 [[Cursor - Общее о rules]]
