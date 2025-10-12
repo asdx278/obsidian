@@ -290,6 +290,10 @@ alwaysApply: true
 
 ```
 
+### Выбор моделей для выполнения  разных задач
+
+
+
 ### Additional materials
 
 https://docs.cursor.com/ru/context/rules#dobavlenie-novogo-parametra-nastroyki-v-cursor
