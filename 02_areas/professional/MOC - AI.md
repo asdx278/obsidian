@@ -5,6 +5,11 @@ created: 2025-09-25
 # MOC - AI
 
 ## Notes
+
+### MCP
+
+[[MCP - Общее]]
+
 ### Cursor AI
 
 [[Cursor - общие рекомендации]]
