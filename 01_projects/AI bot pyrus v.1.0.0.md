@@ -18,22 +18,7 @@ created: 2025-10-23
 
 ## Термины
 
-MCP
-RAG
-CSAT
-KPI
-SLO
-SLA
-TAT
-RACI
-SME
-BRD
-SRS
-ETL
-STRIDE
-RBAC
-TTFB
-MRR
+
 
 
 
