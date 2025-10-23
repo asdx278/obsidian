@@ -88,15 +88,15 @@ created: 2025-10-23
 - Подготовить prompt-templates, system messages, temperature, max tokens, safety guards.
 - Интеграция с MCP: LLM вызывает MCP-tools (например, запрашивает документ, делает поиск в intranet).
 Артефакты:
+- API integration
+- Prompt library + prompt testing corpus
+- Safety policy + content filters
+Входы: RAG outputs, SRS, MCP manifests.
+Критерии приемки:
+- 90% ответов корректны
+- Latency per response не превышает заданного уровня (SLO).
 
-
-
-
-
-
-
-
-
+### 
 
 
 
