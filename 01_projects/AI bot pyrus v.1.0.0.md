@@ -69,13 +69,15 @@ created: 2025-10-23
 
 Задачи:
 - Экспорт исторических тикетов (метаданные, теги, вложения), очистка (PII redaction), нормализация, аннотация (категории, intent).
-- Разработка ETL: тексты → chunking → embedding → vector DB (Weaviate/Milvus/Pinecone/Chromadb).
-
-
-
-
-
-
+- Разработка ETL: тексты → chunking → embedding → vector DB (k-hub).
+- Добавить retrieval signals: recency, priority, similarity thresholds.
+Артефакты:
+- Data-schema для RAG (fields, chunk size, metadata)
+- ETL pipeline (код + infra)
+- Dataset sample + data quality report
+Входы: экспорт тикетов, политики хранения данных.  
+Выходы: индексированная RAG-база, метрики качества.
+Критерии приемки:
 
 
 
