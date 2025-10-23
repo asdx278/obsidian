@@ -30,6 +30,13 @@ SME
 BRD
 SRS
 ETL
+STRIDE
+RBAC
+TTFB
+MRR
+
+
+
 
 
 
