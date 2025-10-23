@@ -266,13 +266,14 @@ SLO:
 - Следующие итерации: multi-channel, расширенные коннекторы (MCP), улучшение RAG, аналитика эффективности, автоматическая дообучаемость (human feedback loop).
 
 [[Scrum Backlog (AI-бот-агент сопровождения)]]
+[[SRS (Software Requirements Specification)]]
+[[BRD (Business Requirements Document)]]
+[[Архитектура высокого уровня (C4-стиль)]]
+[[MCP Manifest]]
+[[Пример ETL и Jupyter-pipeline для RAG]]
+[[Security Checklist и Threat Model (STRIDE)]]
 
-
-
-
-
-
-
+[[Техническое задание и план разработки AI бота-агента]]
 
 
 
