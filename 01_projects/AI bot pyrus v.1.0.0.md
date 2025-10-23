@@ -106,7 +106,21 @@ created: 2025-10-23
 Критерии приемки:
 - Оператор может перехватить сессию и увидеть RAG-источники и цепочку действий.
 
-### 
+### Фаза G — Тестирование и валидация
+
+Задачи:
+- Unit, integration, e2e tests; test harness для оценки RAG+LLM (позитивные/негативные кейсы, adversarial prompts).
+- Human evaluation: blind A/B с реальными операторами.
+Артефакты:
+- Test plans, test cases, evaluation reports, security pen-test report.
+Критерии приемки:
+- Тесты покрывают 95% кода/функционала.
+- Прошли security и privacy review.
+
+
+
+
+
 
 
 
