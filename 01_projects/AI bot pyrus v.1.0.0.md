@@ -133,10 +133,139 @@ created: 2025-10-23
 Ключевые блоки:
 - Каналы: Pyrus
 - Orchestration Layer / Agent Manager: маршрутизирует запросы, отслеживает сессии, отвечает за политик хранения контекста.
+- MCP layer:
+	- MCP client внутри Orchestrator: обращается к MCP-серверу(ам) для чтения/выполнения инструментов.
+	- MCP server(s): экспонируют источники (тикеты, внутренние документы, корпоративная файловая система, user directory).
+	- Каждый источник описан manifest'ом (operations, permissions).
+	- MCP используется как стандартный «мост» между LLM и инструментами/данными. Позволяет: безопасно выставлять инструменты, стандартизировать manifests, упрощать интеграцию и аудит.
+	- Обязательно: permissions model (who/what tool can access), user consent, ограничение экспорта данных, sandboxing для инструментов.
+	- Тестирование: имитация злонамеренных manifest-вызовов (prompt injection через tools) и проверка правил разрешений.
+- RAG pipeline:
+	- ETL → chunking → embeddings (model choice) → vector DB.
+	- Retriever service с фильтрами и reranking.
+- LLM connector:
+	- Обёртка для LLM API (retry, rate-limit, caching, prompt templates).
+	- Prompt engineering: system prompt с ограничениями, использование RAG context + instruction to cite docs and include confidence score.
+	- Safety: hallucination detection — если ответ содержит фактические утверждения, требовать наличие RAG-source или отказ (I don't know).
+- Safety & Governance:
+	- Filters, redaction, hallucination detector, explainability layer (traceability: какие источники, цепочка вызовов).
+- Observability & Auditing:
+	- Trace per query: inputs, retrieved docs, prompts, model response, final answer, operator actions.
+- Ops infra:
+	- Secrets, Key management, Network segmentation, Data residency.
 
+## RAG-проектирование
 
+- Chunking: разбивать тикеты и вложения на фрагменты ~500–1000 токенов, сохранять метаданные (ticket_id, date, author, tags, resolution).
+- Relevance signals: recency, resolved_by_rating, frequency of similar issues.
+- Vett-process: human-in-the-loop проверка выборки ответов и дообучение prompt-templates.  
+Metrics to track: hit@k, MRR, precision@k, rouge/f1 на извлечённой информации.
 
+## Безопасность, комплаенс, приватность
 
+Обязательные действия:
+- PII detection & redaction (automated + manual QA).
+- Data residency: хранение эмбеддингов/кейсов по банковским требованиям (on-prem vs cloud region).
+- RBAC и least privilege для MCP tools.
+- Auditing: immutable logs, tamper-evident storage.
+- Penetration testing, threat modelling (STRIDE), review третьей стороны.  
+Критерии приемки:
+- SOC2 type II / internal security checklist выполнены для production.
+- Pen-test критические уязвимости устранены.
+
+## Качество и тестирование
+
+Тесты:
+- Unit + integration tests для ETL, retriever, MCP connectors.
+- Regression tests for prompt outputs (snapshot tests).
+- Adversarial tests: prompt injection attempts, malformed MCP manifests.
+- Human eval: blind A/B (bot vs human) по наборам типичных тикетов.
+Критерии приемки:
+- Автоматическая точность ответов ≥ X% (определяется бизнесом).
+- Уровень эскалаций ≤ целевого уровня.
+- CSAT при общении с ботом не хуже baseline.
+
+## Эксплуатация / SRE
+
+- Мониторинг: metrics for latency, error rate, retrieval quality, cost.
+- Alerting: degraded retrieval, high hallucination rate, MCP tool failures.
+- Runbook: шаги на случай утечки данных, неожиданных ответов LLM, превышения затрат.
+- Backups: vector DB snapshots, ETL reproducibility.
+SLO:
+- Availability of agent control plane ≥ X% (определить с SRE).
+- 95-percentile response latency ≤ defined limit.
+
+## Scrum Backlog — эпики, истории и acceptance criteria
+
+Каждая story разбивается на таски dev/test/doc
+
+### Epic 1 — Исходные данные и RAG
+
+- Story: Как инженер данных, я хочу экспортировать и очистить 100k исторических тикетов для индексирования, чтобы подготовить RAG-источник.  
+    Acceptance: ETL выполняет экспорт с 0% raw PII в индекс, sample QA = 99% корректности.
+    
+- Story: Как инженер, я хочу настроить embedding pipeline и загрузить 1M chunks в векторную БД.  
+    Acceptance: Query latency < target, hit@5 > threshold на валидации.
+
+### Epic 2 — MCP интеграция
+
+- Story: Как архитектор, я хочу выставить MCP manifest для тикетов и internal docs, чтобы LLM мог безопасно запрашивать документы через MCP.  
+    Acceptance: Manifest проходит security review, tool permissions работают (deny/allow) при тестах.
+    
+- Story: Как dev, я хочу тестовую MCP sandbox среду, чтобы эмулировать tool calls.  
+    Acceptance: sandbox блокирует внешние сетевые вызовы, логирует все вызовы.
+
+### Epic 3 — Core Agent (MVP)
+
+- Story: Как пользователь, хочу задать вопрос в чат и получить ответ с сылкой на источник в RAG.  
+    Acceptance: Ответ содержит ссылку на источник или ясное "не знаю", % ошибок ниже порога.
+    
+- Story: Как оператор, хочу иметь экран мониторинга с контекстом сессии и кнопкой перехвата.  
+    Acceptance: Перехват работает, история видна.
+
+### Epic 4 — Safety & Compliance
+
+- Story: Как офицер ИБ, хочу, чтобы каждый ответ проходил фильтр на утечку PII и соответствие политике.  
+    Acceptance: Любая выдача с PII блокируется и заносится в аудит.
+
+### Epic 5 — Observability & Ops
+
+- Story: Настроить метрики и дашборды SLO/SLI.  
+    Acceptance: При сбое создаётся инцидент и выполняется runbook.
+    
+
+## Пример критериев приёмки для ключевых модулей
+
+- RAG retrieval: для тест-сета из 500 кейсов hit@5 ≥ 0.85 и MRR ≥ 0.6 (порогы настраиваются).
+- Ответы бота: на контролируемом наборе 100 реальных тикетов human eval показывает ≥ 90% корректных ответов.
+- Latency: 95-й перцентиль общего TTFB (time-to-first-bot-response) < заданный порог (зависит от infra).
+- Security: критических уязвимостей нет в отчёте pen-test.
+
+## Риски
+
+- Риск: утечка PII через ответы — mitigation: PII redaction + mandatory cite + human-in-loop.
+- Риск: prompt injection через MCP tools — mitigation: strict permissions, input sanitization, review tool manifests.
+- Риск: низкое качество RAG retrieval — mitigation: iterative curation, human feedback loop, reranking.
+- Риск: расходы на LLM — mitigation: caching, summarization, hybrid strategy (on-prem small models for embeddings/retrieval).
+
+## Набор артефактов, которые нужно подготовить
+
+- BRD, SRS
+- Architecture diagrams (C4), sequence diagrams
+- MCP manifests & connector specs
+- Data schema & ETL code (with samples)
+- Prompt library & prompt test corpus
+- Test plans, security assessment reports
+- Runbooks, monitoring dashboards
+- Backlog (Jira/CSV) + Definition of Done (DoD)
+- Конфигурация CI/CD + infra as code
+
+## MVP и эволюции
+
+- MVP минимум: поддержка одного канала + базовая RAG + ChatGPT минимальный prompt + ручная эскалация.
+- Следующие итерации: multi-channel, расширенные коннекторы (MCP), улучшение RAG, аналитика эффективности, автоматическая дообучаемость (human feedback loop).
+
+[[Scrum Backlog (AI-бот-агент сопровождения)]]
 
 
 
