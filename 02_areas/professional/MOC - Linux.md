@@ -7,6 +7,7 @@ created: 2025-11-18
 ## Notes
 
 [[Linux - Переименование стандартных папок]]
+[[Linux - Управление appimage]]
 
 
 ## Books
