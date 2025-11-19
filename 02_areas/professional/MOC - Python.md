@@ -6,7 +6,7 @@ created: 2025-09-25
 
 ## Notes
 
-
+[[Python - Декораторы]]
 
 ## Books
 
