@@ -5,6 +5,7 @@ created: 2025-09-25
 # MOC - Professional
 
 [[02_areas/professional/MOC - AI|MOC - AI]]
+[[MOC - GIT]]
 [[MOC - Python]]
 [[MOC - Linux]]
 [[MOC - Kubernetes]]
