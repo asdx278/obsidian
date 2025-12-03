@@ -47,3 +47,5 @@ Skills помогают claude лучше использовать MCP.
 
 
 ### Additional materials
+
+Репозиторий anthropoic про навыки - https://github.com/anthropics/skills
