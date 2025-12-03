@@ -29,7 +29,8 @@ created: 2025-09-25
 
 [[Claude - регистрация и оплата]]
 [[Claude - Skills]]
-
+[[Claude - Projects]]
+[[Claude - Custom instructions]]
 
 ### Prompts
 

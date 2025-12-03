@@ -58,6 +58,8 @@ MCP подключает Claude к внешним сервисам и источ
 [[Claude - Custom instructions]] применяются широко ко всем вашим разговорам. Skills специфичны для задач и загружаются только при необходимости, что делает их лучше для специализированных рабочих процессов.
 
 [[Claude - Установка собственного навыка Claude Code на Linux]]
+
 ### Additional materials
 
 Репозиторий anthropoic про навыки - https://github.com/anthropics/skills
+Навыки - глубокое погружение в основные принципы - https://leehanchung.github.io/blogs/2025/10/26/claude-skills-deep-dive/
