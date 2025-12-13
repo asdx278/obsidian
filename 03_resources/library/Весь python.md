@@ -4,7 +4,7 @@ title: Весь python
 type: non-fiction
 author: Романо Ф.
 year: 2026
-status: planned
+status: active
 started:
 finished:
 rate:
