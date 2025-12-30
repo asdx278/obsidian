@@ -6,6 +6,12 @@ created: 2025-09-25
 
 ## Notes
 
+### Spec-driven development (SDD)
+
+[[SDD - Общее]]
+
+
+
 ### MCP
 
 [[MCP - Общее]]
